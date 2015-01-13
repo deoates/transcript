@@ -5,159 +5,231 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Foundation</title>
     <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.min.css" />
+
+    <script src="http://use.typekit.net/zok0bmp.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="//checkout.stripe.com/checkout.js"></script>
+
+    <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+    mixpanel.init("7a331bbe6a2e99f3456f36cb65de30e9");</script><!-- end Mixpanel -->
+
+    <script>
+      mixpanel.track("Viewed: "+window.location.pathname)
+    </script>
+
   </head>
   <body>
-    <div class="row">
-      <div class="large-12 columns">
-        <h1>Welcome to Foundation</h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel">
-          <h3>We&rsquo;re stoked you want to try Foundation! </h3>
-          <p>To get going, this file (index.html) includes some basic styles you can modify, play around with, or totally destroy to get going.</p>
-          <p>Once you've exhausted the fun in this document, you should check out:</p>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-          <p><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br />Everything you need to know about using the framework.</p>
+    <div class="hero">
+      <div class="hero-cover"></div>
+      <div class="row">
+        <div class="large-12 columns">
+          <header>
+            <img class="left" src="images/logo@2x.png" width="222" height="auto">
+            <ul class="main-nav inline-list clearfix right">
+              <li><a href="mailto:team@transcriptengine.com">Need help? team@transcriptengine.com</a></li>
+            </ul>
+          </header>
         </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://github.com/zurb/foundation">Foundation on Github</a><br />Latest code, issue reports, feature requests and more.</p>
-            </div>
-            <div class="large-4 medium-4 columns">
-              <p><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br />Ping us on Twitter if you have questions. If you build something with this we'd love to see it (and send you a totally boss sticker).</p>
-            </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns text-center">
+          <h2>The best voice-to-text service. Period.</h1>
+          <img src="images/features.png" width="549">
+          <div class="cta-container">
+            <a data-href="#main-cta" class="button large">Try it now!</a>
           </div>
         </div>
       </div>
     </div>
 
+  <div class="order-form">
     <div class="row">
-      <div class="large-8 medium-8 columns">
-        <h5>Here&rsquo;s your basic grid:</h5>
-        <!-- Grid Example -->
-
+      <div class="large-12 columns">
+        <h3>Order Your Transcription In 30 Seconds </h3>
         <div class="row">
-          <div class="large-12 columns">
-            <div class="callout panel">
-              <p><strong>This is a twelve column section in a row.</strong> Each of these includes a div.panel element so you can see where the columns are - it's not required at all for the grid.</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-          <div class="large-6 medium-6 columns">
-            <div class="callout panel">
-              <p>Six columns</p>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-          <div class="large-4 medium-4 small-4 columns">
-            <div class="callout panel">
-              <p>Four columns</p>
-            </div>
-          </div>
-        </div>
+          <div class="large-8 columns">
+            <dl class="tabs" data-tab>
+              <div class="cover"></div>
+              <dd class="active">
+                <a href="#panel1">
+                  <span class="step">1</span>
+                  Add files...
+                  <span class="second-line">
+                    or paste in a URL
+                  </span>
+                </a>
+              </dd>
+              <dd>
+                <a href="#panel2">
+                  <span class="step">2</span>
+                  Pay online
+                  <span class="second-line">
+                    100% secure payment
+                  </span>
+                </a>
+              </dd>
+              <dd>
+                <a href="#panel3">
+                  <span class="step">3</span>
+                  Confirm order...
+                  <span class="second-line">
+                    That's it!
+                  </span>
+                </a>
+              </dd>
+            </dl>
+            <div class="tabs-content">
+              <div class="content active" id="panel1">
+                <a data-href="dropzone" class="button small">
+                  <i class="fa fa-cloud-upload"></i>
+                  Add files...
+                </a>
+                <span class="or" > or </span>
+                <a data-reveal-id="urlModal" class="button small">
+                  <i class="fa fa-link"> </i>
+                  Add URL(s)
+                </a>
 
-        <hr />
-
-        <h5>We bet you&rsquo;ll need a form somewhere:</h5>
-        <form>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-12.columns" />
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <label>Input Label</label>
-              <input type="text" placeholder="large-4.columns" />
-            </div>
-            <div class="large-4 medium-4 columns">
-              <div class="row collapse">
-                <label>Input Label</label>
-                <div class="small-9 columns">
-                  <input type="text" placeholder="small-9.columns" />
+                <div id="urlModal" class="reveal-modal small" data-reveal>
+                  <h5><strong>Enter URL(s) to audio and video clips online</strong></h2>
+                  <br>
+                  <div class="row">
+                    <div class="large-12 columns">
+                        <textarea id="URLs" placeholder="ie. http://youtube.com/your-video"></textarea>
+                      </label>
+                    </div>
+                  </div>
+                  <br>
+                  <a data-href="saveURL" class="button yellow small">
+                    Save
+                  </a>
+                  <a class="close-reveal-modal">&#215;</a>
                 </div>
-                <div class="small-3 columns">
-                  <span class="postfix">.com</span>
+
+                <div class="dz-preview-container">
+                  <div class="added-URLs-container" style="display:none">
+                    <span class="added-URLs"></span>
+                    <div class="dz-actions">
+                      <a data-reveal-id="urlModal" href="#">Edit</a>
+                      <a class="warn" data-href="delete-URLs"  href="#">Remove</a>
+                    </div>
+                  </div>
+
+                  <div class="helper">
+                    <strong>No files yet! </strong> You can:
+                    <ul>
+                      <li>Upload audio or video files from your computer</li>
+                      <li>Add a link to an audio or video file online, a Youtube video for example.</li>
+                    </ul>
+                  </div>
                 </div>
+                <a style="display: none" data-href="save-files" class="save-files yellow button small">
+                  <i class="fa fa-check"></i>
+                  Save and Finish
+                </a>
+              </div>
+              <div class="content" id="panel2">
+                <a data-href="back" class="button small">
+                  <i class="fa fa-angle-left"></i>
+                  Edit files
+                </a>
+                <form>
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <h6><strong>1. Enter the length of the audio to be transcribed</strong></h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="large-3 columns">
+                      <label>Hours</label>
+                      <input maxlength="2" class="hour-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <div class="large-3 columns">
+                      <label>Minutes</label>
+                      <input maxlength="2" class="min-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <div class="large-6 columns">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <h6><strong>2. Where should we send the transcription?</strong></h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="large-6 columns">
+                      <label>Email Address</label>
+                      <input class="email-addr" type="text" placeholder="you@domain.com" />
+                    </div>
+                    <div class="large-6 columns">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="large-9 columns">
+                      <h6><strong>Order total:</strong></h6>
+                      <h2 class="order-amount">$0.00</h2>
+                      <p class="order-description">
+                      </p>
+                    </div>
+                    <div class="large-3 columns">
+                      <a id="checkout" class="button yellow small">
+                        Checkout
+                      </a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="content" id="panel3">
+                <h4><strong>Order Received</strong></h4>
+                <p>We will send the completed transcript to you in the next 48 hours.</p>
+                <p>Thanks for your business!</p>
               </div>
             </div>
           </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select Box</label>
-              <select>
-                <option value="husker">Husker</option>
-                <option value="starbuck">Starbuck</option>
-                <option value="hotdog">Hot Dog</option>
-                <option value="apollo">Apollo</option>
-              </select>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-6 medium-6 columns">
-              <label>Choose Your Favorite</label>
-              <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Radio 1</label>
-              <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Radio 2</label>
-            </div>
-            <div class="large-6 medium-6 columns">
-              <label>Check these out</label>
-              <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
-              <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Textarea Label</label>
-              <textarea placeholder="small-12.columns"></textarea>
-            </div>
-          </div>
-        </form>
-      </div>
+          <div class="large-4 columns order-sidebar">
+            <h6>Need help?</h6>
+            <p>
+            <strong>Get in touch:</strong><br>
+            support@transcriptengine.com<br>
+            (704) 996-1324
+            </p>
+            <br>
 
-      <div class="large-4 medium-4 columns">
-        <h5>Try one of these buttons:</h5>
-        <p><a href="#" class="small button">Simple Button</a><br/>
-        <a href="#" class="small radius button">Radius Button</a><br/>
-        <a href="#" class="small round button">Round Button</a><br/>
-        <a href="#" class="medium success button">Success Btn</a><br/>
-        <a href="#" class="medium alert button">Alert Btn</a><br/>
-        <a href="#" class="medium secondary button">Secondary Btn</a></p>
-        <div class="panel">
-          <h5>So many components, girl!</h5>
-          <p>A whole kitchen sink of goodies comes with Foundation. Check out the docs to see them all, along with details on making them your own.</p>
-          <a href="http://foundation.zurb.com/docs/" class="small button">Go to Foundation Docs</a>
-        </div>
-      </div>
-    </div>
+            <h6>What our customers are saying</h6>
+            <br>
+            <p>
+            “I need to transcribe multiple audio files a week for my job, and Transcript Engine has never failed to deliver on time. I recommend them to everyone!"
+            <br>
+            <strong>- Dr. Jennifer Thompson</strong>
+            </p>
+            <p>
+            “This is the best transcription service. Period!” 
+            <br>
+            <strong>- Sam Smith</strong>
+            </p>
 
+          </div>
+
+      </div>
+    </div><!--row-->
+  </div><!-- order-form -->
+    <br><br><br>&nbsp;
+    <br>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="bower_components/dropzone/downloads/dropzone.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+
   </body>
 </html>
