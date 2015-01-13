@@ -6,7 +6,10 @@
   $(function() {
     var dropzone, email, handler, hours, mins, order, price, updateOrderAmt;
     $('a[data-href="#main-cta"]').click(function(e) {
-      return mixpanel.track("Clicked main CTA");
+      mixpanel.track("Clicked main CTA");
+      return $('html, body').animate({
+        scrollTop: $(".order-form").offset().top
+      }, 500);
     });
     $('a[data-href="dropzone"]').click(function(e) {
       return mixpanel.track("Clicked to add files");

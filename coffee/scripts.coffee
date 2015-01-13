@@ -21,6 +21,8 @@ $ ->
 
   $('a[data-href="#main-cta"]').click (e) ->
     mixpanel.track "Clicked main CTA"
+    $('html, body').animate({scrollTop: $(".order-form").offset().top}, 500)
+
 
   $('a[data-href="dropzone"]').click (e) ->
     mixpanel.track "Clicked to add files"
