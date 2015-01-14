@@ -1,0 +1,128 @@
+$green: #91D31E
+$light-gray: #f9f9f9
+$dark: #444540
+$red: red
+
+.dz-preview-container
+  width: 100%
+  margin-bottom: 25px
+  border-top: 1px solid rgba(0,0,0,.1)
+  padding-top: 15px
+
+  .helper
+    font-size: .95rem
+
+    ul
+      margin-left: 2.5rem
+      padding-top: 10px
+
+      li
+        font-size: .95rem
+
+
+.dz-actions
+  width: 100%
+  clear: both
+  font-size: .85rem
+  margin-top: 5px
+  opacity: .9
+
+  span, a
+    display: inline-block
+    margin-right: 10px
+
+  a
+    text-decoration: underline
+    color: lighten($body-font-color, 10%)
+
+  a.warn
+    color: lighten($red, 15%)
+
+.dz-preview
+  position: relative
+  height: auto
+  width: 100%
+  margin-bottom: 10px
+
+  .dz-filename
+    float: left
+
+  .dz-details
+    @include pie-clearfix
+
+  .dz-size
+    font-size: .9rem
+    padding-left: 8px
+    opacity: .6
+    float: left
+
+    strong
+      font-weight: 500!important
+
+    &:before
+      content: '('
+
+    &:after
+      content: ')'
+
+  .dz-error-msg
+    font-weight: 600
+    color: lighten(red, 25%)
+
+    &:before
+      content: ' Error: '
+      font-weight: 600
+      color: lighten(red, 15%)
+
+  .dz-error-mark, .dz-success-mark
+    display: none
+    font-size: 1.3rem
+    padding: 4px 6px
+
+  .dz-error-mark
+    color: lighten(red, 15%)
+
+  .dz-success-mark
+    color: #8cc657
+
+  &.dz-error
+    .dz-error-mark
+      display: block
+    .dz-error-msg
+      display: inline-block
+
+  &.dz-success
+    .dz-success-mark
+      display: block
+
+.dz-progress-container
+  width: 80%
+  height: 14px
+  position: relative
+  margin-top: 10px
+
+  .dz-progress
+    width: 100%
+    background: #eee
+    float: left
+    height: 14px
+    overflow: hidden
+    position: relative
+
+  .dz-upload
+    background: lighten($green, 15%)
+    position: absolute
+    height: 100%
+    width: 0%
+    top: 0
+    left: 0px
+    z-index: 100
+
+  .dz-progress-percent
+    @include transition(all .5s)
+    display: block
+    position: absolute
+    font-weight: 300
+    right: -40px
+    top: -3px
+    opacity: .75
