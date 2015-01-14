@@ -17,12 +17,15 @@ dropzoneTemplate = """
 
 $ ->
 
+  api = "http://api.transcriptengine.com"
+  if document.location.hostname is 'localhost'
+    api = "http://localhost:5000"
+
   # get the stripe key
 
   $('a[data-href="#main-cta"]').click (e) ->
     mixpanel.track "Clicked main CTA"
     $('html, body').animate({scrollTop: $(".order-form").offset().top}, 500)
-
 
   $('a[data-href="dropzone"]').click (e) ->
     mixpanel.track "Clicked to add files"
@@ -36,7 +39,7 @@ $ ->
     previewsContainer: '.dz-preview-container'
     previewTemplate: dropzoneTemplate
     createImageThumbnails: false
-    url: "http://localhost:3002/upload"
+    url: "#{api}/upload"
 
   dropzone.on 'processing', () ->
     $('.helper').fadeOut()
@@ -130,7 +133,7 @@ $ ->
 
   handler = {}
 
-  $.ajax "http://localhost:3002/stripeKey",
+  $.ajax "#{api}/stripeKey",
     method: 'GET'
     success: (key) =>
       handler = StripeCheckout.configure

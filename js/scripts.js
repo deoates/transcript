@@ -4,7 +4,11 @@
   dropzoneTemplate = "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n  </div>\n  <div class=\"dz-progress-container\">\n    <div class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n    <span class=\"dz-progress-percent\"></span>\n  </div>\n  <div class=\"dz-actions\">\n    <span data-dz-errormessage class=\"dz-status\">Uploading file...</span>\n    <a class=\"warn\" data-dz-remove data-href=\"cancel\" href=\"#\">Cancel</a>\n  </div>\n</div>";
 
   $(function() {
-    var dropzone, email, handler, hours, mins, order, price, updateOrderAmt;
+    var api, dropzone, email, handler, hours, mins, order, price, updateOrderAmt;
+    api = "http://api.transcriptengine.com";
+    if (document.location.hostname === 'localhost') {
+      api = "http://localhost:5000";
+    }
     $('a[data-href="#main-cta"]').click(function(e) {
       mixpanel.track("Clicked main CTA");
       return $('html, body').animate({
@@ -22,7 +26,7 @@
       previewsContainer: '.dz-preview-container',
       previewTemplate: dropzoneTemplate,
       createImageThumbnails: false,
-      url: "http://localhost:3002/upload"
+      url: "" + api + "/upload"
     });
     dropzone.on('processing', function() {
       return $('.helper').fadeOut();
@@ -112,7 +116,7 @@
       return mixpanel.track("Entered email address");
     });
     handler = {};
-    $.ajax("http://localhost:3002/stripeKey", {
+    $.ajax("" + api + "/stripeKey", {
       method: 'GET',
       success: (function(_this) {
         return function(key) {
