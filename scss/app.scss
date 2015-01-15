@@ -18,6 +18,8 @@ body {
   padding: 0px;
 }
 
+
+
 .hero {
   position: relative;
   width: 100%!important;
@@ -192,8 +194,14 @@ body {
       margin: 0px 8px;
     }
 
-    .added-URLs-container {
-      margin-bottom: 15px;
+    ul.added-URLs {
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        list-style: none;
+        margin-bottom: 12px;
+      }
     }
 
   }
@@ -213,6 +221,21 @@ body {
   }
 
 }
+
+
+a.back {
+  color: $body-font-color;
+  text-decoration: underline;
+  opacity: .65;
+  display: block;
+  margin-bottom: 15px;
+  font-size: .9rem;
+  i {
+    padding-right: 5px;
+  }
+
+}
+
 
 
 a.button.small {
@@ -268,6 +291,11 @@ a.button.small {
 
 .reveal-modal-bg {
   position: fixed;
+}
+
+.helper a, .helper a:hover {
+  color: $body-font-color;
+  text-decoration: underline;
 }
     
 

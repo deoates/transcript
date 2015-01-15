@@ -58,9 +58,9 @@
               <dd class="active">
                 <a href="#panel1">
                   <span class="step">1</span>
-                  Add files...
+                  Upload file(s)...
                   <span class="second-line">
-                    or paste in a URL
+                    or import from a URL
                   </span>
                 </a>
               </dd>
@@ -76,7 +76,7 @@
               <dd>
                 <a href="#panel3">
                   <span class="step">3</span>
-                  Confirm order...
+                  Order complete
                   <span class="second-line">
                     That's it!
                   </span>
@@ -87,39 +87,26 @@
               <div class="content active" id="panel1">
                 <a data-href="dropzone" class="button small">
                   <i class="fa fa-cloud-upload"></i>
-                  Add files...
+                  Upload files...
                 </a>
                 <span class="or" > or </span>
                 <a data-reveal-id="urlModal" class="button small">
                   <i class="fa fa-link"> </i>
-                  Add URL(s)
+                  Import from URL...
                 </a>
 
-                <div id="urlModal" class="reveal-modal small" data-reveal>
-                  <h5><strong>Enter URL(s) to audio and video clips online</strong></h2>
-                  <br>
-                  <div class="row">
-                    <div class="large-12 columns">
-                        <textarea id="URLs" placeholder="ie. http://youtube.com/your-video"></textarea>
-                      </label>
-                    </div>
-                  </div>
-                  <br>
+                <div id="urlModal" class="reveal-modal tiny" data-reveal>
+                  <h4><strong>Import from URL</strong></h4>
+                  <label>Link to audio/video to be transcribed</label>
+                  <input id="URL" type="text" placeholder="ie. http://youtube.com/your-video" />
                   <a data-href="saveURL" class="button yellow small">
-                    Save
+                    Save URL
                   </a>
                   <a class="close-reveal-modal">&#215;</a>
                 </div>
 
                 <div class="dz-preview-container">
-                  <div class="added-URLs-container" style="display:none">
-                    <span class="added-URLs"></span>
-                    <div class="dz-actions">
-                      <a data-reveal-id="urlModal" href="#">Edit</a>
-                      <a class="warn" data-href="delete-URLs"  href="#">Remove</a>
-                    </div>
-                  </div>
-
+                  <ul class="added-URLs"></ul>
                   <div class="helper">
                     <strong>No files yet! </strong> You can:
                     <ul>
@@ -128,15 +115,14 @@
                     </ul>
                   </div>
                 </div>
-                <a style="display: none" data-href="save-files" class="save-files yellow button small">
+                <a style="display: none" data-href="save-files" class="yellow button small">
                   <i class="fa fa-check"></i>
                   Save and Finish
                 </a>
               </div>
               <div class="content" id="panel2">
-                <a data-href="back" class="button small">
-                  <i class="fa fa-angle-left"></i>
-                  Edit files
+                <a data-href="back" class="back">
+                  <i class="fa fa-angle-left"></i>Edit files
                 </a>
                 <form>
                   <div class="row">
