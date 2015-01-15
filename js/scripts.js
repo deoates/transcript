@@ -29,10 +29,6 @@
       createImageThumbnails: false,
       url: "" + api + "/upload"
     });
-    $('a[data-href="dropzone"]').click(function(e) {
-      e.preventDefault();
-      return $('a[data-href="dropzone"]').trigger('click');
-    });
     dropzone.on('processing', function() {
       return $('.helper').fadeOut();
     });

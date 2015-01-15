@@ -47,10 +47,6 @@ $ ->
     createImageThumbnails: false
     url: "#{api}/upload"
 
-  $('a[data-href="dropzone"]').click (e) ->
-    do e.preventDefault
-    $('a[data-href="dropzone"]').trigger 'click'
-
   dropzone.on 'processing', () ->
     $('.helper').fadeOut()
 
