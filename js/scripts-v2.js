@@ -121,7 +121,7 @@
                 data: {
                   'token': token.id,
                   'email': email,
-                  'amount': order * 100,
+                  'amount': parseInt(order * 100),
                   'files': window.localStorage['files'],
                   'length': "" + hours + ":" + mins
                 },
@@ -181,7 +181,7 @@
       handler.open({
         name: 'Audio Transcription',
         description: "" + mins + " mins - $" + (order.toFixed(2)),
-        amount: order * 100,
+        amount: parseInt(order * 100),
         email: email
       });
       return e.preventDefault();
