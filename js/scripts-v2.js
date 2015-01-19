@@ -30,7 +30,6 @@
       createImageThumbnails: false,
       url: "" + api + "/upload"
     });
-    console.log(dropzone);
     dropzone.on('processing', function() {});
     dropzone.on('removedfile', function() {
       if (dropzone.files.length === 0) {
@@ -127,8 +126,8 @@
                   'length': "" + hours + ":" + mins
                 },
                 success: function(response) {
-                  $('a[href="#panel3"]').trigger('click');
-                  return mixpanel.track("Paid successfully");
+                  mixpanel.track("Paid successfully");
+                  return $('.form-container > form').html("<h3>Order Successful</h3>\n<p>We will get started on your transcript and send it to you via email when it is done!</p>\n<p>Questions? Comments? Concerns? Email us at team@transcriptengine.com!</p>\n<p>Thank you for your business!</p>");
                 }
               });
             }
@@ -167,6 +166,9 @@
       for (_k = 0, _len2 = urls.length; _k < _len2; _k++) {
         url = urls[_k];
         fileString += "URL: " + url + " \n";
+      }
+      if ($('#verbatim').prop('checked')) {
+        fileString += "VERBATIM TRANSCRIPTION REQUESTED \n";
       }
       files = fileString;
       mixpanel.track("Clicked to pay");

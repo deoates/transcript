@@ -33,8 +33,6 @@ $ ->
   $('[data-reveal-id="urlModal"]').click (e) ->
     mixpanel.track "Clicked to add URLs"
 
-
-
   urls = []
 
   Dropzone.autoDiscover = false
@@ -45,8 +43,6 @@ $ ->
     previewTemplate: dropzoneTemplate
     createImageThumbnails: false
     url: "#{api}/upload"
-
-  console.log dropzone
 
 
   dropzone.on 'processing', () ->
@@ -153,10 +149,16 @@ $ ->
                 'files': window.localStorage['files']
                 'length': "#{hours}:#{mins}"
               success: (response) ->
-                $('a[href="#panel3"]').trigger('click')
                 mixpanel.track "Paid successfully"
+                $('.form-container > form').html """
+                  <h3>Order Successful</h3>
+                  <p>We will get started on your transcript and send it to you via email when it is done!</p>
+                  <p>Questions? Comments? Concerns? Email us at team@transcriptengine.com!</p>
+                  <p>Thank you for your business!</p>
+                """
 
   do handlerSetup
+
 
   $('#checkout').on 'click', (e) ->
 
@@ -186,7 +188,11 @@ $ ->
     for url in urls
       fileString += "URL: #{url} \n"
 
+    if $('#verbatim').prop('checked')
+      fileString += "VERBATIM TRANSCRIPTION REQUESTED \n"
+
     files = fileString
+
     mixpanel.track "Clicked to pay"
 
     unless handler?
