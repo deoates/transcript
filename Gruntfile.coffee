@@ -6,6 +6,7 @@ module.exports = (grunt) ->
       compile:
         files:
           'js/scripts.js': 'coffee/scripts.coffee'
+          'js/scripts-v2.js': 'coffee/scripts-v2.coffee'
 
     compass:
       dist:

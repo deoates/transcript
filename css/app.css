@@ -9042,61 +9042,68 @@ th.hide-for-touch {
     display: table-cell !important;
   }
 }
-/* line 6, ../scss/_dropzone.sass */
+/* line 7, ../scss/_dropzone.sass */
 .dz-preview-container {
   width: 100%;
   margin-bottom: 25px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 15px;
 }
-/* line 12, ../scss/_dropzone.sass */
+/* line 13, ../scss/_dropzone.sass */
 .dz-preview-container .helper {
   font-size: 0.95rem;
 }
-/* line 15, ../scss/_dropzone.sass */
+/* line 16, ../scss/_dropzone.sass */
 .dz-preview-container .helper ul {
   margin-left: 2.5rem;
   padding-top: 10px;
 }
-/* line 19, ../scss/_dropzone.sass */
+/* line 20, ../scss/_dropzone.sass */
 .dz-preview-container .helper ul li {
   font-size: 0.95rem;
 }
 
-/* line 23, ../scss/_dropzone.sass */
+/* line 24, ../scss/_dropzone.sass */
 .dz-actions {
   width: 100%;
   clear: both;
-  font-size: 0.85rem;
-  opacity: 0.9;
+  font-size: 0.7rem;
+  opacity: 0.75;
+  margin-top: 4px;
 }
-/* line 29, ../scss/_dropzone.sass */
+/* line 31, ../scss/_dropzone.sass */
 .dz-actions span, .dz-actions a {
   display: inline-block;
   margin-right: 10px;
 }
-/* line 33, ../scss/_dropzone.sass */
+/* line 35, ../scss/_dropzone.sass */
 .dz-actions a {
   text-decoration: underline;
-  color: #40484e;
+  color: #e6e6e6;
 }
-/* line 37, ../scss/_dropzone.sass */
+/* line 39, ../scss/_dropzone.sass */
 .dz-actions a.warn {
   color: #ff4d4d;
 }
 
-/* line 40, ../scss/_dropzone.sass */
+/* line 42, ../scss/_dropzone.sass */
 .dz-preview {
   position: relative;
   height: auto;
   width: 100%;
   margin-bottom: 10px;
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 3px;
 }
-/* line 46, ../scss/_dropzone.sass */
+/* line 52, ../scss/_dropzone.sass */
 .dz-preview .dz-filename {
   float: left;
+  font-size: 0.75rem;
+  font-weight: bold;
 }
-/* line 49, ../scss/_dropzone.sass */
+/* line 57, ../scss/_dropzone.sass */
 .dz-preview .dz-details {
   *zoom: 1;
 }
@@ -9106,82 +9113,82 @@ th.hide-for-touch {
   display: table;
   clear: both;
 }
-/* line 52, ../scss/_dropzone.sass */
+/* line 60, ../scss/_dropzone.sass */
 .dz-preview .dz-size {
   font-size: 0.9rem;
   padding-left: 8px;
-  opacity: 0.6;
+  display: none;
   float: left;
 }
-/* line 58, ../scss/_dropzone.sass */
+/* line 66, ../scss/_dropzone.sass */
 .dz-preview .dz-size strong {
   font-weight: 500 !important;
 }
-/* line 61, ../scss/_dropzone.sass */
+/* line 69, ../scss/_dropzone.sass */
 .dz-preview .dz-size:before {
   content: "(";
 }
-/* line 64, ../scss/_dropzone.sass */
+/* line 72, ../scss/_dropzone.sass */
 .dz-preview .dz-size:after {
   content: ")";
 }
-/* line 67, ../scss/_dropzone.sass */
+/* line 75, ../scss/_dropzone.sass */
 .dz-preview .dz-error-msg {
   font-weight: 600;
   color: #ff8080;
 }
-/* line 71, ../scss/_dropzone.sass */
+/* line 79, ../scss/_dropzone.sass */
 .dz-preview .dz-error-msg:before {
   content: " Error: ";
   font-weight: 600;
   color: #ff4d4d;
 }
-/* line 76, ../scss/_dropzone.sass */
+/* line 84, ../scss/_dropzone.sass */
 .dz-preview .dz-error-mark, .dz-preview .dz-success-mark {
   display: none;
   font-size: 1.3rem;
   padding: 4px 6px;
 }
-/* line 81, ../scss/_dropzone.sass */
+/* line 89, ../scss/_dropzone.sass */
 .dz-preview .dz-error-mark {
   color: #ff4d4d;
 }
-/* line 84, ../scss/_dropzone.sass */
+/* line 92, ../scss/_dropzone.sass */
 .dz-preview .dz-success-mark {
   color: #8cc657;
 }
-/* line 88, ../scss/_dropzone.sass */
+/* line 96, ../scss/_dropzone.sass */
 .dz-preview.dz-error .dz-error-mark {
   display: block;
 }
-/* line 90, ../scss/_dropzone.sass */
+/* line 98, ../scss/_dropzone.sass */
 .dz-preview.dz-error .dz-error-msg {
   display: inline-block;
 }
-/* line 94, ../scss/_dropzone.sass */
+/* line 102, ../scss/_dropzone.sass */
 .dz-preview.dz-success .dz-success-mark {
   display: block;
 }
 
-/* line 97, ../scss/_dropzone.sass */
+/* line 105, ../scss/_dropzone.sass */
 .dz-progress-container {
   width: 80%;
   height: 14px;
   position: relative;
-  margin-top: 10px;
+  margin: 5px 0px 0px;
 }
-/* line 103, ../scss/_dropzone.sass */
+/* line 111, ../scss/_dropzone.sass */
 .dz-progress-container .dz-progress {
   width: 100%;
-  background: #eee;
+  background: #ccc;
   float: left;
-  height: 14px;
+  height: 10px;
   overflow: hidden;
   position: relative;
 }
-/* line 111, ../scss/_dropzone.sass */
+/* line 119, ../scss/_dropzone.sass */
 .dz-progress-container .dz-upload {
-  background: #b2e756;
+  background: #559FF5;
   position: absolute;
   height: 100%;
   width: 0%;
@@ -9189,7 +9196,7 @@ th.hide-for-touch {
   left: 0px;
   z-index: 100;
 }
-/* line 120, ../scss/_dropzone.sass */
+/* line 128, ../scss/_dropzone.sass */
 .dz-progress-container .dz-progress-percent {
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -9197,10 +9204,10 @@ th.hide-for-touch {
   transition: all 0.5s;
   display: block;
   position: absolute;
-  font-weight: 300;
-  right: -40px;
-  top: -3px;
+  right: -33px;
+  top: -2px;
   opacity: 0.75;
+  font-size: 0.75rem;
 }
 
 /* line 8, ../scss/app.scss */
@@ -9319,7 +9326,7 @@ body {
   background: #fff;
   border-left: 1px solid #eee;
   display: block;
-  color: #626e78;
+  color: white;
   padding-left: 54px;
   height: 72px;
 }
@@ -9348,7 +9355,7 @@ body {
 /* line 152, ../scss/app.scss */
 .order-form dl.tabs dd.active a {
   font-weight: 700;
-  color: #292E32;
+  color: #ccc;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 /* line 157, ../scss/app.scss */
@@ -9414,7 +9421,7 @@ body {
 
 /* line 226, ../scss/app.scss */
 a.back {
-  color: #292E32;
+  color: #ccc;
   text-decoration: underline;
   opacity: .65;
   display: block;
@@ -9475,6 +9482,6 @@ a.button.small.yellow:active {
 
 /* line 296, ../scss/app.scss */
 .helper a, .helper a:hover {
-  color: #292E32;
+  color: #ccc;
   text-decoration: underline;
 }

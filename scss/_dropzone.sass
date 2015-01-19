@@ -1,3 +1,4 @@
+$body-font-color: #ccc
 $green: #91D31E
 $light-gray: #f9f9f9
 $dark: #444540
@@ -23,8 +24,9 @@ $red: red
 .dz-actions
   width: 100%
   clear: both
-  font-size: .85rem
-  opacity: .9
+  font-size: .7rem
+  opacity: .75
+  margin-top: 4px
 
   span, a
     display: inline-block
@@ -42,9 +44,15 @@ $red: red
   height: auto
   width: 100%
   margin-bottom: 10px
+  background: #eee
+  border: 1px solid #ccc
+  padding: 5px
+  border-radius: 3px
 
   .dz-filename
     float: left
+    font-size: .75rem
+    font-weight: bold
 
   .dz-details
     @include pie-clearfix
@@ -52,7 +60,7 @@ $red: red
   .dz-size
     font-size: .9rem
     padding-left: 8px
-    opacity: .6
+    display: none
     float: left
 
     strong
@@ -98,18 +106,18 @@ $red: red
   width: 80%
   height: 14px
   position: relative
-  margin-top: 10px
+  margin: 5px 0px 0px
 
   .dz-progress
     width: 100%
-    background: #eee
+    background: #ccc
     float: left
-    height: 14px
+    height: 10px
     overflow: hidden
     position: relative
 
   .dz-upload
-    background: lighten($green, 15%)
+    background: #559FF5
     position: absolute
     height: 100%
     width: 0%
@@ -121,7 +129,7 @@ $red: red
     @include transition(all .5s)
     display: block
     position: absolute
-    font-weight: 300
-    right: -40px
-    top: -3px
-    opacity: .75
+    right: -33px
+    top: -2px
+    opacity: 0.75
+    font-size: .75rem
