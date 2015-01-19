@@ -126,8 +126,11 @@
                   'length': "" + hours + ":" + mins
                 },
                 success: function(response) {
+                  var image;
                   mixpanel.track("Paid successfully");
-                  return $('.form-container > form').html("<h3>Order Successful</h3>\n<p>We will get started on your transcript and send it to you via email when it is done!</p>\n<p>Questions? Comments? Concerns? Email us at team@transcriptengine.com!</p>\n<p>Thank you for your business!</p>");
+                  $('.form-container > form').html("<h3>Order Successful</h3>\n<p>We will get started on your transcript and send it to you via email when it is done!</p>\n<p>Questions? Comments? Concerns? Email us at team@transcriptengine.com!</p>\n<p>Thank you for your business!</p>");
+                  image = new Image(1, 1);
+                  return image.src = "//www.googleadservices.com/pagead/conversion/954869196/?value=" + (order.toFixed(2)) + "&amp;currency_code=USD&amp;label=4JEOCPq8iVkQzMuoxwM&amp;guid=ON&amp;script=0";
                 }
               });
             }

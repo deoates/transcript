@@ -156,6 +156,9 @@ $ ->
                   <p>Questions? Comments? Concerns? Email us at team@transcriptengine.com!</p>
                   <p>Thank you for your business!</p>
                 """
+                image = new Image(1,1)
+                image.src = "//www.googleadservices.com/pagead/conversion/954869196/?value=#{order.toFixed(2)}&amp;currency_code=USD&amp;label=4JEOCPq8iVkQzMuoxwM&amp;guid=ON&amp;script=0"
+
 
   do handlerSetup
 
