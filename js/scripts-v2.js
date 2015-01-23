@@ -4,10 +4,10 @@
   dropzoneTemplate = "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\">\n      <span data-dz-name></span>\n    </div>\n    <div class=\"dz-size\" data-dz-size></div>\n  </div>\n  <div class=\"dz-progress-container\">\n    <div class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n    <span class=\"dz-progress-percent\"></span>\n  </div>\n  <div class=\"dz-actions\">\n    <span data-dz-errormessage class=\"dz-status\">Uploading file...</span>\n    <a class=\"warn\" data-dz-remove data-href=\"cancel\" href=\"#\">Cancel</a>\n  </div>\n</div>";
 
   $(function() {
-    var api, deleteHandler, description, dropzone, email, handler, handlerSetup, hours, mins, order, price, refreshURLs, updateOrderAmt, urls;
+    var api, deleteHandler, description, dropzone, email, handler, handlerSetup, hours, mins, order, price, refreshURLs, updateMins, updateOrderAmt, urls;
     api = "http://api.transcriptengine.com";
     if (document.location.hostname === 'localhost') {
-      api = "http://localhost:5000";
+      api = "http://localhost:8080";
     }
     $('a[data-href="#main-cta"]').click(function(e) {
       mixpanel.track("Clicked main CTA");
@@ -28,23 +28,30 @@
       previewsContainer: '.dz-preview-container',
       previewTemplate: dropzoneTemplate,
       createImageThumbnails: false,
+      maxFilesize: 1000,
       url: "" + api + "/upload"
     });
-    dropzone.on('processing', function() {});
-    dropzone.on('removedfile', function() {
-      if (dropzone.files.length === 0) {
-        return $('a[data-href="save-files"]').hide();
-      }
-    });
     dropzone.on('uploadprogress', function(file, progress, bytesSent) {
-      return $('.dz-progress-percent').text(Math.round(progress - 1) + "%");
+      var el;
+      el = $(".dz-preview:contains(" + file.name + ")");
+      return $(el).find('.dz-progress-percent').text(Math.round(progress - 1) + "%");
     });
     dropzone.on("complete", function(file) {
-      return $('.dz-progress-container').fadeOut();
+      var el;
+      el = $(".dz-preview:contains(" + file.name + ")");
+      return $(el).find('.dz-progress-container').fadeOut();
     });
-    dropzone.on('success', function(file) {
-      $('.dz-status').text("Upload complete!");
-      $('a[data-href="cancel"]').text("Delete file");
+    dropzone.on('success', function(file, response) {
+      var el;
+      el = $(".dz-preview:contains(" + file.name + ")");
+      $(el).find('a[data-href="cancel"]').text("Delete file");
+      file.duration = response['duration'];
+      if (file.duration != null) {
+        $(el).find('.dz-status').html("Length: " + parseInt(file.duration / 60) + " minutes<br>");
+      } else {
+        $(el).find('.dz-status').html("Uploaded successfully but unable to guess audio length");
+      }
+      updateMins();
       return mixpanel.track("File upload successful");
     });
     $('[data-href="saveURL"]').click(function(e) {
@@ -55,6 +62,19 @@
       $('#urlModal').foundation('reveal', 'close');
       return refreshURLs();
     });
+    updateMins = function() {
+      var duration, file, _i, _len, _ref;
+      duration = 0;
+      _ref = dropzone.files;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        file = _ref[_i];
+        if (file.duration != null) {
+          duration += file.duration;
+        }
+      }
+      $('input[name="length"]').val(parseInt(duration / 60));
+      return updateOrderAmt();
+    };
     refreshURLs = function() {
       var index, url, _i, _len;
       $('ul.added-URLs').html('');

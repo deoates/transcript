@@ -21,7 +21,7 @@ $ ->
 
   api = "http://api.transcriptengine.com"
   if document.location.hostname is 'localhost'
-    api = "http://localhost:5000"
+    api = "http://localhost:8080"
 
   $('a[data-href="#main-cta"]').click (e) ->
     mixpanel.track "Clicked main CTA"
@@ -42,25 +42,27 @@ $ ->
     previewsContainer: '.dz-preview-container'
     previewTemplate: dropzoneTemplate
     createImageThumbnails: false
+    maxFilesize: 1000
     url: "#{api}/upload"
-
-
-  dropzone.on 'processing', () ->
-
-  dropzone.on 'removedfile', () ->
-    if dropzone.files.length is 0
-      $('a[data-href="save-files"]').hide()
 
   # update percentage count
   dropzone.on 'uploadprogress', (file, progress, bytesSent) ->
-    $('.dz-progress-percent').text Math.round(progress-1) + "%"
+    el = $(".dz-preview:contains(#{file.name})")
+    $(el).find('.dz-progress-percent').text Math.round(progress-1) + "%"
 
   dropzone.on "complete", (file) ->
-    $('.dz-progress-container').fadeOut()
+    el = $(".dz-preview:contains(#{file.name})")
+    $(el).find('.dz-progress-container').fadeOut()
 
-  dropzone.on 'success', (file) ->
-    $('.dz-status').text "Upload complete!"
-    $('a[data-href="cancel"]').text "Delete file"
+  dropzone.on 'success', (file, response) ->
+    el = $(".dz-preview:contains(#{file.name})")
+    $(el).find('a[data-href="cancel"]').text "Delete file"
+    file.duration = response['duration']
+    if file.duration?
+      $(el).find('.dz-status').html "Length: " +  parseInt(file.duration / 60) + " minutes<br>"
+    else
+      $(el).find('.dz-status').html "Uploaded successfully but unable to guess audio length"
+    do updateMins
     mixpanel.track "File upload successful"
 
   $('[data-href="saveURL"]').click (e) ->
@@ -69,6 +71,14 @@ $ ->
       urls.push $('input#URL').val()
     $('#urlModal').foundation('reveal', 'close')
     do refreshURLs
+
+  updateMins = ->
+    duration = 0
+    for file in dropzone.files
+      if file.duration?
+        duration += file.duration
+    $('input[name="length"]').val(parseInt(duration/60))
+    do updateOrderAmt
 
   refreshURLs = () ->
     $('ul.added-URLs').html ''
