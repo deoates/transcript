@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
     <title>Transcript Engine: No-Hassle Audio Transcription</title>
-    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/v2.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
-
-    <script src="http://use.typekit.net/zok0bmp.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <script src="//checkout.stripe.com/checkout.js"></script>
@@ -24,196 +21,135 @@
 
   </head>
   <body>
-    <div class="hero">
-      <div class="hero-cover"></div>
-      <div class="row">
-        <div class="large-12 columns">
-          <header>
-            <img class="left" src="images/logo@2x.png" width="222" height="auto">
-            <ul class="main-nav inline-list clearfix right">
-              <li><a href="mailto:team@transcriptengine.com">Need help? team@transcriptengine.com</a></li>
-            </ul>
-          </header>
+    <div class="wrapper">
+      <img src="images/logo-white.png" width="201" height="auto">
+      <img class="contact-info" src="images/contact-info.png" width="360" height="auto">
+      <img class="hero" src="images/v2-header.png" width="852" height="auto">
+      <hr>
+      <div class="form-container">
+        <img src="images/arrows.png" width="340" height="auto">
+        <div class="form-header">
+          <h3>Transcribe Your Files Now</h3>
         </div>
-      </div>
-      <div class="row">
-        <div class="large-12 columns text-center">
-          <h2>We Transcribe Your Audio.</h2>
-          <img src="images/features.png" width="549">
-          <div class="cta-container">
-            <a data-href="#main-cta" class="button large">Try it now!</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <div class="order-form">
-    <div class="row">
-      <div class="large-12 columns">
-        <h3>Get Started in 30 Seconds </h3>
-        <div class="row">
-          <div class="large-8 columns">
-            <dl class="tabs" data-tab>
-              <div class="cover"></div>
-              <dd class="active">
-                <a href="#panel1">
-                  <span class="step">1</span>
-                  Upload file(s)...
-                  <span class="second-line">
-                    or import from a URL
-                  </span>
-                </a>
-              </dd>
-              <dd>
-                <a href="#panel2">
-                  <span class="step">2</span>
-                  Pay online
-                  <span class="second-line">
-                    100% secure payment
-                  </span>
-                </a>
-              </dd>
-              <dd>
-                <a href="#panel3">
-                  <span class="step">3</span>
-                  Order complete
-                  <span class="second-line">
-                    That's it!
-                  </span>
-                </a>
-              </dd>
-            </dl>
-            <div class="tabs-content">
-              <div class="content active" id="panel1">
-                <a data-href="dropzone" class="button small">
-                  <i class="fa fa-cloud-upload"></i>
-                  Upload files...
-                </a>
-                <span class="or" > or </span>
-                <a data-reveal-id="urlModal" class="button small">
-                  <i class="fa fa-link"> </i>
-                  Import from URL...
-                </a>
-
-                <div id="urlModal" class="reveal-modal tiny" data-reveal>
-                  <h4><strong>Import from URL</strong></h4>
-                  <label>Link to audio/video to be transcribed</label>
-                  <input id="URL" type="text" placeholder="ie. http://youtube.com/your-video" />
-                  <a data-href="saveURL" class="button yellow small">
-                    Save URL
-                  </a>
-                  <a class="close-reveal-modal">&#215;</a>
-                </div>
-
-                <div class="dz-preview-container">
-                  <ul class="added-URLs"></ul>
-                  <div class="helper">
-                    <strong>No files yet! </strong> You can:
-                    <ul>
-                      <li>Upload audio or video files from your computer</li>
-                      <li>Add a link to an audio or video file online, a Youtube video for example.</li>
-                    </ul>
-                  </div>
-                </div>
-                <a style="display: none" data-href="save-files" class="yellow button small">
-                  <i class="fa fa-check"></i>
-                  Save and Finish
-                </a>
-              </div>
-              <div class="content" id="panel2">
-                <a data-href="back" class="back">
-                  <i class="fa fa-angle-left"></i>Edit files
-                </a>
-                <form>
-                  <div class="row">
-                    <div class="large-12 columns">
-                      <h6><strong>1. Enter the length of the audio to be transcribed</strong></h6>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="large-3 columns">
-                      <label>Hours</label>
-                      <input maxlength="2" class="hour-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                    </div>
-                    <div class="large-3 columns">
-                      <label>Minutes</label>
-                      <input maxlength="2" class="min-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                    </div>
-                    <div class="large-6 columns">
-                      &nbsp;
-                    </div>
-                  </div>
-                  <br>
-                  <div class="row">
-                    <div class="large-12 columns">
-                      <h6><strong>2. Where should we send the transcription?</strong></h6>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="large-6 columns">
-                      <label>Email Address</label>
-                      <input class="email-addr" type="text" placeholder="you@domain.com" />
-                    </div>
-                    <div class="large-6 columns">
-                      &nbsp;
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="large-9 columns">
-                      <h6><strong>Order total:</strong></h6>
-                      <h2 class="order-amount">$0.00</h2>
-                      <p class="order-description">
-                      </p>
-                    </div>
-                    <div class="large-3 columns">
-                      <a id="checkout" class="button yellow small">
-                        Checkout
-                      </a>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div class="content" id="panel3">
-                <h4><strong>Order Received</strong></h4>
-                <p>We will send the completed transcript to you in the next 48 hours.</p>
-                <p>Thanks for your business!</p>
-              </div>
+        <form action="/upload">
+          <fieldset>
+            <label>1. What are you transcribing?</label>
+            <input type="radio" name="type" value="audio" checked>&nbsp;Audio<br>
+            <input type="radio" name="type" value="video">&nbsp;Video
+          </fieldset>
+          <fieldset>
+            <label>2. Email Address</label>
+            <input type="text" name="email" >
+            <span class="helper">(This is where we will send the transcript when it’s done)</span>
+          </fieldset>
+          <fieldset>
+            <label>3. Add Files</label>
+            <button type="button" data-href="dropzone">Upload files...</button>
+            <button type="button" data-reveal-id="urlModal" class="paste-url">Paste a URL</button>
+            <div id="urlModal" class="reveal-modal tiny" data-reveal>
+              <h4><strong>Import from URL</strong></h4>
+              <input id="URL" type="text" placeholder="ie. http://youtube.com/your-video" />
+              <button type="button" data-href="saveURL">
+                Save URL
+              </a>
+              <a class="close-reveal-modal">&#215;</a>
             </div>
-          </div>
-          <div class="large-4 columns order-sidebar">
-            <h6>Need help?</h6>
-            <p>
-            <strong>Get in touch:</strong><br>
-            support@transcriptengine.com<br>
-            (704) 996-1324
-            </p>
-            <br>
+            <div class="dz-preview-container">
+              <ul class="added-URLs"></ul>
+            </div>
+          </fieldset>
+          <fieldset>
+            <label>4. Audio length <br>(in minutes)</label>
+            <input type="number" name="length" >
+            <span class="helper">(We charge $1/minute)</span>
+          </fieldset>
+          <fieldset class="options">
+            <label>5. Options</label>
+            <input id="verbatim" type="checkbox" name="options" value="Verbatim">&nbsp;Verbatim Transcription<br>
+            <span class="helper">+ $0.25/minute</span><br>
 
-            <h6>What our customers are saying</h6>
-            <br>
-            <p>
-            “I need to transcribe multiple audio files a week for my job, and Transcript Engine has never failed to deliver on time. I recommend them to everyone!"
-            <br>
-            <strong>- Dr. Jennifer Thompson</strong>
-            </p>
-            <p>
-            “This is the best transcription service. Period!” 
-            <br>
-            <strong>- Sam Smith</strong>
-            </p>
+            <input type="checkbox" name="options" value="Speaker ID">&nbsp;Speaker Identification
+            <span class="helper">FREE </span>
+          </fieldset>
+          <fieldset id="order-total" style="display: none;">
+            <label>Order Total</label>
+            <h3 class="order-amount">$0.00</h3>
+            <span class="helper order-description"></span>
+          </fieldset>
 
-          </div>
 
+          <div class="cta-container">
+            <a href="#" data-href="checkout" id="checkout">Transcribe Now</a>
+            <span>Your Transcript Will Be Emailed In Under 48 Hours</span>
+            <span>100% Money-Back Quality Guarantee</span>
+        </form>
       </div>
-    </div><!--row-->
-  </div><!-- order-form -->
-    <br><br><br>&nbsp;
-    <br>
+      <br>
+      <br>
+      <img src="images/stats.png" width="352" height="auto">
+    </div>
+    <div id="exampleModal" class="reveal-modal small" data-reveal>
+      <h4><strong>Example Transcript</strong></h4>
+      <img src="images/example-full.jpg">
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div class="right">
+        <center>
+          <a data-reveal-id="exampleModal">
+            <img src="images/example.png" width="397" height="auto">
+          </a>
+        </center>
+        <br>
+        <h4><strong><span class="green">What We Believe:</span></strong></h4>
+        <p>
+          Look, we know that you don’t want something complicated.
+          You have audio or video and you need a transcript, and<strong> you
+          need it fast. </strong>You don’t want to break the bank…
+          and you shouldn’t have to! Others may claim to do it cheaper,
+          but they will take weeks to deliver. 
+        </p>
+        <p>
+          It’s very simple.<strong><span class="green"> $1/minute. 
+          Accuracy Guaranteed. US-Based Company.</span></strong>
+          That’s all there is to it. You securely upload your files,
+          and we will get to work on transcribing them for you
+          (see the Sample Transcript above).
+        </p>
+        <p>
+        As soon as we’re done, we will email the transcript in a .doc (Microsoft Word) file. Our customers tell us that this makes their life incredibly easy, and we are happy to do it!<br><br>
+        </p>
+        <hr>
+        <h3><strong><span class="blue">We're Here To Help:</span></strong></h3>
+        <img class="contact" src="images/contact-info.png" width="360" height="auto">
+
+        <h4><strong><span class="green">From A Customer:</span></strong></h4>
+        <p>
+          “I need to transcribe multiple audio files a week for my job,
+          and <strong>Transcript Engine has never failed to deliver on time.</strong>
+          I recommend them to everyone!" 
+        </p>
+
+      <br>
+      <br>
+      </div>
+      <br>
+      <center>
+      <div>
+      <hr class="steps-divider">
+      <img class="steps" src="images/steps.png" width="792" height="auto">
+    </div>
+    </center>
+    </div>
+    <footer>
+    <center><p>
+        Copyright &copy; 2013-2014 Transcript Engine. Email us: <a href="mailto:team@transcriptengine.com">team@transcriptengine.com</a> or call us at (704) 996-1324.
+        </p> </center>
+    </footer>
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/dropzone.min.js"></script>
-    <script src="js/scripts.js"></script>
+    <script src="js/scripts-v2.js"></script>
     <script>
       $(document).foundation();
     </script>

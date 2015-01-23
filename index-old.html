@@ -1,0 +1,231 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <title>Transcript Engine: No-Hassle Audio Transcription</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" />
+
+    <script src="http://use.typekit.net/zok0bmp.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="//checkout.stripe.com/checkout.js"></script>
+
+    <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+    mixpanel.init("7a331bbe6a2e99f3456f36cb65de30e9");</script><!-- end Mixpanel -->
+
+    <script>
+      mixpanel.track("Viewed: "+window.location.pathname)
+    </script>
+
+  </head>
+  <body>
+    <div class="hero">
+      <div class="hero-cover"></div>
+      <div class="row">
+        <div class="large-12 columns">
+          <header>
+            <img class="left" src="images/logo@2x.png" width="222" height="auto">
+            <ul class="main-nav inline-list clearfix right">
+              <li><a href="mailto:team@transcriptengine.com">Need help? team@transcriptengine.com</a></li>
+            </ul>
+          </header>
+        </div>
+      </div>
+      <div class="row">
+        <div class="large-12 columns text-center">
+          <h2>We Transcribe Your Audio.</h2>
+          <img src="images/features.png" width="549">
+          <div class="cta-container">
+            <a data-href="#main-cta" class="button large">Try it now!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="order-form">
+    <div class="row">
+      <div class="large-12 columns">
+        <h3>Get Started in 30 Seconds </h3>
+        <div class="row">
+          <div class="large-8 columns">
+            <dl class="tabs" data-tab>
+              <div class="cover"></div>
+              <dd class="active">
+                <a href="#panel1">
+                  <span class="step">1</span>
+                  Upload file(s)...
+                  <span class="second-line">
+                    or import from a URL
+                  </span>
+                </a>
+              </dd>
+              <dd>
+                <a href="#panel2">
+                  <span class="step">2</span>
+                  Pay online
+                  <span class="second-line">
+                    100% secure payment
+                  </span>
+                </a>
+              </dd>
+              <dd>
+                <a href="#panel3">
+                  <span class="step">3</span>
+                  Order complete
+                  <span class="second-line">
+                    That's it!
+                  </span>
+                </a>
+              </dd>
+            </dl>
+            <div class="tabs-content">
+              <div class="content active" id="panel1">
+                <a data-href="dropzone" class="button small">
+                  <i class="fa fa-cloud-upload"></i>
+                  Upload files...
+                </a>
+                <span class="or" > or </span>
+                <a data-reveal-id="urlModal" class="button small">
+                  <i class="fa fa-link"> </i>
+                  Import from URL...
+                </a>
+
+                <div id="urlModal" class="reveal-modal tiny" data-reveal>
+                  <h4><strong>Import from URL</strong></h4>
+                  <label>Link to audio/video to be transcribed</label>
+                  <input id="URL" type="text" placeholder="ie. http://youtube.com/your-video" />
+                  <a data-href="saveURL" class="button yellow small">
+                    Save URL
+                  </a>
+                  <a class="close-reveal-modal">&#215;</a>
+                </div>
+
+                <div class="dz-preview-container">
+                  <ul class="added-URLs"></ul>
+                  <div class="helper">
+                    <strong>No files yet! </strong> You can:
+                    <ul>
+                      <li>Upload audio or video files from your computer</li>
+                      <li>Add a link to an audio or video file online, a Youtube video for example.</li>
+                    </ul>
+                  </div>
+                </div>
+                <a style="display: none" data-href="save-files" class="yellow button small">
+                  <i class="fa fa-check"></i>
+                  Save and Finish
+                </a>
+              </div>
+              <div class="content" id="panel2">
+                <a data-href="back" class="back">
+                  <i class="fa fa-angle-left"></i>Edit files
+                </a>
+                <form>
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <h6><strong>1. Enter the length of the audio to be transcribed</strong></h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="large-3 columns">
+                      <label>Hours</label>
+                      <input maxlength="2" class="hour-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <div class="large-3 columns">
+                      <label>Minutes</label>
+                      <input maxlength="2" class="min-count" type="text" placeholder="00" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                    </div>
+                    <div class="large-6 columns">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <br>
+                  <div class="row">
+                    <div class="large-12 columns">
+                      <h6><strong>2. Where should we send the transcription?</strong></h6>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="large-6 columns">
+                      <label>Email Address</label>
+                      <input class="email-addr" type="text" placeholder="you@domain.com" />
+                    </div>
+                    <div class="large-6 columns">
+                      &nbsp;
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="large-9 columns">
+                      <h6><strong>Order total:</strong></h6>
+                      <h2 class="order-amount">$0.00</h2>
+                      <p class="order-description">
+                      </p>
+                    </div>
+                    <div class="large-3 columns">
+                      <a id="checkout" class="button yellow small">
+                        Checkout
+                      </a>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="content" id="panel3">
+                <h4><strong>Order Received</strong></h4>
+                <p>We will send the completed transcript to you in the next 48 hours.</p>
+                <p>Thanks for your business!</p>
+              </div>
+            </div>
+          </div>
+          <div class="large-4 columns order-sidebar">
+            <h6>Need help?</h6>
+            <p>
+            <strong>Get in touch:</strong><br>
+            support@transcriptengine.com<br>
+            (704) 996-1324
+            </p>
+            <br>
+
+            <h6>What our customers are saying</h6>
+            <br>
+            <p>
+            “I need to transcribe multiple audio files a week for my job, and Transcript Engine has never failed to deliver on time. I recommend them to everyone!"
+            <br>
+            <strong>- Dr. Jennifer Thompson</strong>
+            </p>
+            <p>
+            “This is the best transcription service. Period!” 
+            <br>
+            <strong>- Sam Smith</strong>
+            </p>
+
+          </div>
+
+      </div>
+    </div><!--row-->
+  </div><!-- order-form -->
+    <br><br><br>&nbsp;
+    <br>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/dropzone.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-58640493-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </body>
+</html>
