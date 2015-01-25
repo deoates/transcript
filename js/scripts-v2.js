@@ -4,7 +4,7 @@
   dropzoneTemplate = "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\">\n      <span data-dz-name></span>\n    </div>\n    <div class=\"dz-size\" data-dz-size></div>\n  </div>\n  <div class=\"dz-progress-container\">\n    <div class=\"dz-progress\"><span class=\"dz-upload\" data-dz-uploadprogress></span></div>\n    <span class=\"dz-progress-percent\"></span>\n  </div>\n  <div class=\"dz-actions\">\n    <span data-dz-errormessage class=\"dz-status\">Uploading file...</span>\n    <a class=\"warn\" data-dz-remove data-href=\"cancel\" href=\"#\">Cancel</a>\n  </div>\n</div>";
 
   $(function() {
-    var api, deleteHandler, description, dropzone, email, handler, handlerSetup, hours, mins, order, price, refreshURLs, updateMins, updateOrderAmt, urls;
+    var api, deleteHandler, description, dropzone, email, handler, handlerSetup, hours, mins, order, price, promo, refreshURLs, showPromo, updateMins, updateOrderAmt, urls;
     api = "http://api.transcriptengine.com";
     if (document.location.hostname === 'localhost') {
       api = "http://localhost:8080";
@@ -14,6 +14,24 @@
       return $('html, body').animate({
         scrollTop: $(".order-form").offset().top
       }, 500);
+    });
+    $('button[data-href="sendPromo"]').click(function(e) {
+      var email;
+      email = $('#promo-email').val();
+      if (email != null) {
+        return $.ajax("" + api + "/promo?email=" + email, {
+          method: 'POST',
+          success: function(response) {
+            $('#promoModal').foundation('reveal', 'close');
+            return alert('Please check your email for a Promo Code for 20% off');
+          },
+          error: function() {
+            return alert('Something went wrong. Send us an email at team@transcriptengine.com for a Promo Code for 20% off.');
+          }
+        });
+      } else {
+        return alert('Please enter your email');
+      }
     });
     $('[data-href="dropzone"]').click(function(e) {
       return mixpanel.track("Clicked to add files");
@@ -100,6 +118,7 @@
     hours = 0;
     mins = 0;
     email = "";
+    promo = 0;
     updateOrderAmt = function() {
       var extras;
       mins = parseInt($('input[name="length"]').val() || 0);
@@ -109,8 +128,14 @@
         extras = .25;
       }
       order = mins * (price + extras);
+      if (promo > 0) {
+        order = order * (1 - promo);
+      }
       $('.order-amount').html("$" + (order.toFixed(2)));
       $('.order-description').html("" + mins + " minutes at $" + price + "/min");
+      if (promo > 0) {
+        $('.order-description').append("<br>Promo applied (20% off)");
+      }
       return $('#order-total').show();
     };
     $('#verbatim').change(function(e) {
@@ -123,6 +148,16 @@
     $('input[name="email"]').keyup(function(e) {
       email = $(e.target).val();
       return mixpanel.track("Entered email address");
+    });
+    $('button[data-href="savePromo"]').click(function(e) {
+      var code;
+      code = $('input[name="promo"]').val();
+      if (code === 'TRANSCRIPT2015') {
+        promo = .20;
+        return updateOrderAmt();
+      } else {
+        return alert('Invalid promo code');
+      }
     });
     handler = {};
     handlerSetup = function() {
@@ -206,9 +241,13 @@
       });
       return e.preventDefault();
     });
-    return $(window).on('popstate', function() {
+    $(window).on('popstate', function() {
       return handler.close();
     });
+    showPromo = function() {
+      return $('#promoModal').foundation('reveal', 'open');
+    };
+    return setTimeout(showPromo, 1000);
   });
 
 }).call(this);

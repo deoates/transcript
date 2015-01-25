@@ -27,6 +27,20 @@ $ ->
     mixpanel.track "Clicked main CTA"
     $('html, body').animate({scrollTop: $(".order-form").offset().top}, 500)
 
+  $('button[data-href="sendPromo"]').click (e) ->
+    email = $('#promo-email').val()
+    if email?
+      $.ajax "#{api}/promo?email=#{email}",
+        method: 'POST'
+        success: (response) ->
+          $('#promoModal').foundation('reveal', 'close')
+          alert('Please check your email for a Promo Code for 20% off')
+        error: () ->
+          alert('Something went wrong. Send us an email at team@transcriptengine.com for a Promo Code for 20% off.')
+    else 
+      alert('Please enter your email')
+      
+
   $('[data-href="dropzone"]').click (e) ->
     mixpanel.track "Clicked to add files"
 
@@ -110,6 +124,7 @@ $ ->
   hours = 0
   mins = 0
   email = ""
+  promo = 0
 
 
   updateOrderAmt = ->
@@ -120,8 +135,15 @@ $ ->
       extras = .25
     order = mins * (price + extras)
 
+    if promo > 0
+      order = order * (1-promo)
+
     $('.order-amount').html "$#{order.toFixed(2)}"
     $('.order-description').html "#{mins} minutes at $#{price}/min"
+
+    if promo > 0
+      $('.order-description').append "<br>Promo applied (20% off)"
+
     $('#order-total').show()
 
   $('#verbatim').change (e) ->
@@ -135,6 +157,13 @@ $ ->
     email = $(e.target).val()
     mixpanel.track "Entered email address"
 
+  $('button[data-href="savePromo"]').click (e) ->
+    code = $('input[name="promo"]').val()
+    if code is 'TRANSCRIPT2015'
+      promo = .20
+      do updateOrderAmt
+    else
+      alert('Invalid promo code')
 
   # STRIPE CHECKOUT --------------------------
 
@@ -221,3 +250,8 @@ $ ->
 
   $(window).on 'popstate', () ->
     do handler.close
+
+  showPromo = ->
+    $('#promoModal').foundation('reveal', 'open')
+
+  setTimeout showPromo, 1000
