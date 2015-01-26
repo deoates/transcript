@@ -23,10 +23,27 @@ $ ->
   if document.location.hostname is 'localhost'
     api = "http://localhost:8080"
 
-  $('a[data-href="#main-cta"]').click (e) ->
-    mixpanel.track "Clicked main CTA"
-    $('html, body').animate({scrollTop: $(".order-form").offset().top}, 500)
+  
+  # calculate delivery estimate
+  days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  months = ['January','February','March','April','May','June','July', 'August', 'September', 'October', 'November', 'December']
 
+  date = new Date()
+  date.setDate date.getDate() + 2
+
+  day = days[date.getDay()]
+  dd = date.getDate()
+  month = months[date.getMonth()]
+  y = date.getFullYear()
+  min = date.getMinutes()
+
+  hours = date.getHours()
+  suffix = if (hours >= 12) then 'PM' else 'AM'
+  hours = if (hours > 12) then hours -12 else hours
+  hours = if (hours == '00') then 12 else hours
+
+  $('span.delivery-est').html "#{day}, #{month} #{dd}, #{y} at #{hours}:#{min} #{suffix}"
+  
   $('button[data-href="sendPromo"]').click (e) ->
     email = $('#promo-email').val()
     if email?
@@ -85,14 +102,8 @@ $ ->
       urls.push $('input#URL').val()
     $('#urlModal').foundation('reveal', 'close')
     do refreshURLs
-
-  updateMins = ->
-    duration = 0
-    for file in dropzone.files
-      if file.duration?
-        duration += file.duration
-    $('input[name="length"]').val(parseInt(duration/60))
-    do updateOrderAmt
+    do updateMins
+  
 
   refreshURLs = () ->
     $('ul.added-URLs').html ''
@@ -118,20 +129,46 @@ $ ->
       do refreshURLs
 
 
-  order = 0.00
+  $('[data-href="saveCustomLength"]').click (e) ->
+    customLength = $('input[name="length"]').val()
+    unless customLength is ''
+      $('#customLength').foundation('reveal', 'close')
+      updateMins customLength
+      return
+    alert('Enter the length of the audio to be transcribed, in minutes')
+
+  mins = 0
+
+  updateMins = (custom) ->
+    duration = 0
+    for file in dropzone.files
+      if file.duration?
+        duration += file.duration
+
+    if custom?
+      output = custom
+    else
+      output = parseInt(duration/60)
+
+    mins = output
+
+    $('input[name="length"]').val output
+    $('.audio > h4').html output + " minutes"
+    $('fieldset.duration').fadeIn()
+
+    do updateOrderAmt
+
+  order = 0
   description = ""
   price = 1
-  hours = 0
-  mins = 0
   email = ""
   promo = 0
 
 
   updateOrderAmt = ->
-    mins = parseInt($('input[name="length"]').val() || 0)
     extras = 0
+
     if $('#verbatim').prop('checked')
-      console.log 'it is checked'
       extras = .25
     order = mins * (price + extras)
 
@@ -149,10 +186,6 @@ $ ->
   $('#verbatim').change (e) ->
     do updateOrderAmt
 
-  $('input[name="length"]').keyup (e) ->
-    do updateOrderAmt
-    mixpanel.track "Entered transcription time"
-
   $('input[name="email"]').keyup (e) ->
     email = $(e.target).val()
     mixpanel.track "Entered email address"
@@ -160,6 +193,7 @@ $ ->
   $('button[data-href="savePromo"]').click (e) ->
     code = $('input[name="promo"]').val()
     if code is 'TRANSCRIPT2015'
+      $('#addPromo').foundation('reveal', 'close')
       promo = .20
       do updateOrderAmt
     else
@@ -254,4 +288,5 @@ $ ->
   showPromo = ->
     $('#promoModal').foundation('reveal', 'open')
 
-  setTimeout showPromo, 1000
+  window.promoInit = ->
+    setTimeout showPromo, 1000

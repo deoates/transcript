@@ -33,17 +33,17 @@
         </div>
         <form action="/upload">
           <fieldset>
-            <label>1. What are you transcribing?</label>
+            <label>File Type</label>
             <input type="radio" name="type" value="audio" checked>&nbsp;Audio<br>
             <input type="radio" name="type" value="video">&nbsp;Video
           </fieldset>
           <fieldset>
-            <label>2. Email Address</label>
+            <label>Email</label>
             <input type="text" name="email" >
-            <span class="helper">(This is where we will send the transcript when it’s done)</span>
+            <span class="helper">This is where we will send the transcript when it’s done</span>
           </fieldset>
           <fieldset>
-            <label>3. Add Files</label>
+            <label>Add Files</label>
             <button type="button" data-href="dropzone">Upload files...</button>
             <button type="button" data-reveal-id="urlModal" class="paste-url">Paste a URL</button>
             <div id="urlModal" class="reveal-modal tiny" data-reveal>
@@ -58,34 +58,29 @@
               <ul class="added-URLs"></ul>
             </div>
           </fieldset>
-          <fieldset>
-            <label>4. Audio length <br>(in minutes)</label>
-            <input type="number" name="length" >
+          <fieldset class="duration" style="display: none">
+            <label>Duration</label>
+            <div class="audio">
+              <h4></h4>&nbsp;- <a data-reveal-id="customLength">Edit</a>
+            </div>
             <span class="helper">(We charge $1/minute)</span>
           </fieldset>
           <fieldset class="options">
+            <label>Options</label>
             <input id="verbatim" type="checkbox" name="options" value="Verbatim">&nbsp;Verbatim Transcription<br>
             <span class="helper">+ $0.25/minute</span><br>
-
             <input type="checkbox" name="options" value="Speaker ID">&nbsp;Speaker Identification
-            <span class="helper">FREE </span>
+            <span class="helper">+ $0/minute (free) </span>
           </fieldset>
           <fieldset id="order-total" style="display: none;">
             <label>Order Total</label>
             <h3 class="order-amount">$0.00</h3>
             <span class="helper order-description"></span>
+            <a class="add-promo" data-reveal-id="addPromo">Add Promo Code</a>
           </fieldset>
-          <fieldset>
-            <label>Promo Code</label>
-            <input type="text" name="promo" style="width:100px">
-            <button type="button" data-href="savePromo">Apply Promo</button>
-          </fieldset>
-
-
           <div class="cta-container">
             <a href="#" data-href="checkout" id="checkout">Transcribe Now</a>
-            <span>Your Transcript Will Be Emailed In Under 48 Hours</span>
-            <span>100% Money-Back Quality Guarantee</span>
+            <span>At the latest, your transcript will be delivered by:<strong><span class="delivery-est"></span></strong></span>
         </form>
       </div>
       <br>
@@ -151,12 +146,35 @@
     </footer>
 
     <div id="promoModal" class="reveal-modal tiny" data-reveal>
-      <h2><strong>New Customer?</strong></h2>
-      <h5>Enter your email for 20% off your first order. <br>We don't spam.</h5>
+      <h1><strong>New Customer?</strong></h1>
+      <center>
+      <h4>Enter your email for 20% off your first order.</h4>
       <input id="promo-email" type="text" placeholder="your@email.com" />
+      <br>
       <button type="button" data-href="sendPromo">
         Submit
       </button>
+    </center>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="customLength" class="reveal-modal tiny" data-reveal>
+      <h3>Enter the correct audio length (in minutes)</h3>
+      <p>We charge $1/min.</p>
+      <input name="length" type="text"/>
+      <button type="button" data-href="saveCustomLength">
+        Submit
+      </button>
+    </center>
+      <a class="close-reveal-modal">&#215;</a>
+    </div>
+    <div id="addPromo" class="reveal-modal tiny" data-reveal>
+      <h3>Enter a Promo Code</h3>
+      <input name="promo" type="text"/>
+      <button type="button" data-href="savePromo">
+        Submit
+      </button>
+    </center>
       <a class="close-reveal-modal">&#215;</a>
     </div>
 

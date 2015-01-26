@@ -16,6 +16,12 @@ body
   margin-top: 20px
   line-height: 1.3
 
+input[type="text"], input[type="number"]
+  font-size: .8rem
+  border: 1px solid #979797
+  box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.24)
+  padding: 5px
+
 .wrapper
   @include box-sizing(border-box)
   background: #fff
@@ -84,38 +90,41 @@ form
   button.paste-url
     margin-top: 8px
 
-  input, button, .helper, .dz-preview-container, .order-description, .order-amount
-    margin-left: 40%
+  input, button, .helper, .dz-preview-container, .order-description, .order-amount, .audio, .add-promo
+    margin-left: 35%
 
   .order-amount
     margin-top: 0px
     margin-bottom: 4px
 
+  .audio h4
+    margin: 0px
+    float: left
+
 
   input[type="text"], input[type="number"]
     width: 170px
     font-size: .8rem
-    border: 1px solid #979797
-    box-shadow: inset 0px 1px 3px 0px rgba(0,0,0,0.24)
-    padding: 5px
-
 
   input[type="checkbox"]
-    margin-top: 16px
-
+    margin-top: 0px
+    margin-bottom: 12px
 
   fieldset.options span.helper
-    padding-left: 20px
+    margin-top: -12px
+    display: block
 
   label
-    width: 40%
+    width: 28%
     display: block
     position: absolute
     overflow: hidden
+    text-align: right
 
   .cta-container
     width: 100%
     text-align: center
+    margin: 35px 0px 0px
 
     a[data-href="checkout"]
       color: #163806
@@ -135,11 +144,15 @@ form
       clear: both
       margin: 2px 0px
       font-size: .75rem
-      opacity: .55
+      color: #6E6E6E
 
+  a
+    text-decoration: underline
+    color: lighten(blue, 20%)
+    font-size: .7rem
 
 .dz-preview-container
-  width: 170px
+  width: 185px
   margin-bottom: 0px
   border: 0px
 

@@ -2044,6 +2044,14 @@ body {
 }
 
 /* line 19, ../scss/v2.sass */
+input[type="text"], input[type="number"] {
+  font-size: 0.8rem;
+  border: 1px solid #979797;
+  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
+  padding: 5px;
+}
+
+/* line 25, ../scss/v2.sass */
 .wrapper {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -2061,27 +2069,27 @@ body {
   clear: both;
 }
 
-/* line 27, ../scss/v2.sass */
+/* line 33, ../scss/v2.sass */
 .contact-info {
   float: right;
 }
 
-/* line 30, ../scss/v2.sass */
+/* line 36, ../scss/v2.sass */
 .hero {
   margin: 35px 0px;
 }
 
-/* line 33, ../scss/v2.sass */
+/* line 39, ../scss/v2.sass */
 span.green {
   color: #417505;
 }
 
-/* line 35, ../scss/v2.sass */
+/* line 41, ../scss/v2.sass */
 span.blue {
   color: #4A90E2;
 }
 
-/* line 38, ../scss/v2.sass */
+/* line 44, ../scss/v2.sass */
 a.form-submit {
   background-image: linear-gradient(-180deg, #b4ec51 0%, #429321 100%);
   border: 1px solid #357018;
@@ -2089,14 +2097,14 @@ a.form-submit {
   color: #fff;
 }
 
-/* line 44, ../scss/v2.sass */
+/* line 50, ../scss/v2.sass */
 .form-container {
   width: 40%;
   float: left;
   margin-top: 20px;
 }
 
-/* line 49, ../scss/v2.sass */
+/* line 55, ../scss/v2.sass */
 .form-header {
   background-image: linear-gradient(-180deg, #53a0fd 0%, #195378 100%);
   border: 1px solid #3228B1;
@@ -2107,13 +2115,13 @@ a.form-submit {
   position: relative;
   margin-top: 15px;
 }
-/* line 59, ../scss/v2.sass */
+/* line 65, ../scss/v2.sass */
 .form-header h3 {
   margin: 10px 0px;
   padding: 0px;
 }
 
-/* line 63, ../scss/v2.sass */
+/* line 69, ../scss/v2.sass */
 form {
   margin: -2px 0px 0px 0px;
   padding: 5px 20px 15px;
@@ -2123,62 +2131,68 @@ form {
   border-radius: 4px;
   font-size: 0.85rem;
 }
-/* line 72, ../scss/v2.sass */
+/* line 78, ../scss/v2.sass */
 form fieldset {
   margin: 20px 0px;
   padding: 0px;
   border: 0px;
   position: relative;
 }
-/* line 78, ../scss/v2.sass */
+/* line 84, ../scss/v2.sass */
 form .helper {
   display: inline-block;
   font-size: 0.75rem;
   opacity: 0.55;
   padding-top: 4px;
 }
-/* line 84, ../scss/v2.sass */
+/* line 90, ../scss/v2.sass */
 form button.paste-url {
   margin-top: 8px;
 }
-/* line 87, ../scss/v2.sass */
-form input, form button, form .helper, form .dz-preview-container, form .order-description, form .order-amount {
-  margin-left: 40%;
+/* line 93, ../scss/v2.sass */
+form input, form button, form .helper, form .dz-preview-container, form .order-description, form .order-amount, form .audio, form .add-promo {
+  margin-left: 35%;
 }
-/* line 90, ../scss/v2.sass */
+/* line 96, ../scss/v2.sass */
 form .order-amount {
   margin-top: 0px;
   margin-bottom: 4px;
 }
-/* line 95, ../scss/v2.sass */
+/* line 100, ../scss/v2.sass */
+form .audio h4 {
+  margin: 0px;
+  float: left;
+}
+/* line 105, ../scss/v2.sass */
 form input[type="text"], form input[type="number"] {
   width: 170px;
   font-size: 0.8rem;
-  border: 1px solid #979797;
-  box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.24);
-  padding: 5px;
 }
-/* line 103, ../scss/v2.sass */
+/* line 109, ../scss/v2.sass */
 form input[type="checkbox"] {
-  margin-top: 16px;
+  margin-top: 0px;
+  margin-bottom: 12px;
 }
-/* line 107, ../scss/v2.sass */
+/* line 113, ../scss/v2.sass */
 form fieldset.options span.helper {
-  padding-left: 20px;
+  margin-top: -12px;
+  display: block;
 }
-/* line 110, ../scss/v2.sass */
+/* line 117, ../scss/v2.sass */
 form label {
-  width: 40%;
+  width: 28%;
   display: block;
   position: absolute;
   overflow: hidden;
+  text-align: right;
 }
-/* line 116, ../scss/v2.sass */
+/* line 124, ../scss/v2.sass */
 form .cta-container {
   width: 100%;
   text-align: center;
+  margin: 35px 0px 0px;
 }
-/* line 120, ../scss/v2.sass */
+/* line 129, ../scss/v2.sass */
 form .cta-container a[data-href="checkout"] {
   color: #163806;
   font-weight: bold;
@@ -2191,34 +2205,40 @@ form .cta-container a[data-href="checkout"] {
   border: 1px solid #357018;
   border-radius: 4px;
 }
-/* line 132, ../scss/v2.sass */
+/* line 141, ../scss/v2.sass */
 form .cta-container span {
   display: inline-block;
   width: 100%;
   clear: both;
   margin: 2px 0px;
   font-size: 0.75rem;
-  opacity: 0.55;
+  color: #6E6E6E;
+}
+/* line 149, ../scss/v2.sass */
+form a {
+  text-decoration: underline;
+  color: #6666ff;
+  font-size: 0.7rem;
 }
 
-/* line 141, ../scss/v2.sass */
+/* line 154, ../scss/v2.sass */
 .dz-preview-container {
-  width: 170px;
+  width: 185px;
   margin-bottom: 0px;
   border: 0px;
 }
 
-/* line 146, ../scss/v2.sass */
+/* line 159, ../scss/v2.sass */
 div.reveal-modal-bg {
   position: fixed;
 }
 
-/* line 149, ../scss/v2.sass */
+/* line 162, ../scss/v2.sass */
 ul.added-URLs {
   margin: 0;
   padding: 0;
 }
-/* line 153, ../scss/v2.sass */
+/* line 166, ../scss/v2.sass */
 ul.added-URLs li {
   list-style: none;
   display: block;
@@ -2227,16 +2247,16 @@ ul.added-URLs li {
   border: 1px solid #ccc;
   border-radius: 3px;
 }
-/* line 161, ../scss/v2.sass */
+/* line 174, ../scss/v2.sass */
 ul.added-URLs li span {
   font-weight: bold;
 }
-/* line 164, ../scss/v2.sass */
+/* line 177, ../scss/v2.sass */
 ul.added-URLs span {
   font-size: 0.75rem;
 }
 
-/* line 168, ../scss/v2.sass */
+/* line 181, ../scss/v2.sass */
 .right {
   width: 60%;
   float: right;
@@ -2245,36 +2265,36 @@ ul.added-URLs span {
   color: #222629;
   line-height: 1.5;
 }
-/* line 176, ../scss/v2.sass */
+/* line 189, ../scss/v2.sass */
 .right p {
   font-size: 0.9rem;
 }
-/* line 179, ../scss/v2.sass */
+/* line 192, ../scss/v2.sass */
 .right .contact {
   margin: -28px 0px 0px;
 }
 
-/* line 182, ../scss/v2.sass */
+/* line 195, ../scss/v2.sass */
 .steps {
   margin-top: 15px;
 }
 
-/* line 185, ../scss/v2.sass */
+/* line 198, ../scss/v2.sass */
 footer {
   margin: 20px 0px 40px;
   color: #fff;
 }
-/* line 189, ../scss/v2.sass */
+/* line 202, ../scss/v2.sass */
 footer p {
   opacity: 0.65;
   font-size: 0.75rem;
 }
-/* line 193, ../scss/v2.sass */
+/* line 206, ../scss/v2.sass */
 footer p a {
   color: #fff;
 }
 
-/* line 196, ../scss/v2.sass */
+/* line 209, ../scss/v2.sass */
 hr.steps-divider {
   clear: both;
   margin-top: 35px;
